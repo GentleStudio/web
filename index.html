@@ -30,26 +30,20 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- [신규 배치] 페이지 최상단 로고 전용 영역 -->
-    <div class="top-logo-area">
-        <div class="container top-logo-container">
-            <div class="logo-wrapper" onclick="openLogoModal()">
-                <img src="https://rawcdn.githack.com/GentleStudio/web/4518a40c03b7f9046dd2cc38b1ad6ff110061827/assets/GentleStudio%20logo.png?raw=true" alt="GentleStudio Logo" class="brand-logo">
-                <div class="shimmer"></div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 상단 메뉴바 (헤더: 텍스트 로고로 복구 완료) -->
+    <!-- 상단 메뉴바 (헤더: 깔끔한 텍스트 로고 형태 보존) -->
     <header>
         <div class="container header-container">
             <div class="logo">GentleStudio</div>
         </div>
     </header>
 
-    <!-- 메인 히어로 영역 -->
+    <!-- 메인 히어로 영역 (타이틀 텍스트 상단에 화이트 투명 로고 배치) -->
     <section class="hero">
         <div class="container">
+            <div class="hero-logo-wrapper" onclick="openLogoModal()">
+                <img src="https://rawcdn.githack.com/GentleStudio/web/13e018ccfc5ee14ba230c5f50251201137ce7e6a/assets/GentleStudio_W.png?raw=true" alt="GentleStudio White Logo" class="hero-brand-logo">
+                <div class="shimmer"></div>
+            </div>
             <h1>비즈니스의 전환을 이끄는<br>통합 크리에이티브 파트너, 젠틀스튜디오</h1>
             <p>구매 전환을 돕는 웹 제작 및 콘텐츠 기획, 모델·인플루언서 에이전시</p>
         </div>
@@ -125,7 +119,7 @@
     <!-- 로고 팝업 모달 영역 -->
     <div id="logoModal" class="modal" onclick="closeLogoModal()">
         <span class="close-btn">&times;</span>
-        <img class="modal-content" id="popupImage" alt="GentleStudio Full Logo">
+        <img class="modal-content" id="popupImage" alt="GentleStudio White Full Logo">
     </div>
 
     <!-- 팝업 스크립트 -->
@@ -134,7 +128,7 @@
             const modal = document.getElementById('logoModal');
             const popupImg = document.getElementById('popupImage');
             modal.style.display = 'flex';
-            popupImg.src = 'https://rawcdn.githack.com/GentleStudio/web/4518a40c03b7f9046dd2cc38b1ad6ff110061827/assets/GentleStudio%20logo.png?raw=true';
+            popupImg.src = 'https://rawcdn.githack.com/GentleStudio/web/13e018ccfc5ee14ba230c5f50251201137ce7e6a/assets/GentleStudio_W.png?raw=true';
         }
 
         function closeLogoModal() {
