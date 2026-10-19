@@ -14,7 +14,11 @@
     <!-- 헤더 영역 -->
     <header>
         <div class="container header-container">
-            <div class="logo">GentleStudio</div>
+            <!-- 로고 영역 (아우라 글로우, 쉬머 이펙트 및 팝업 이벤트 추가) -->
+            <div class="logo-wrapper" onclick="openLogoModal()">
+                <img src="https://rawcdn.githack.com/GentleStudio/web/4518a40c03b7f9046dd2cc38b1ad6ff110061827/assets/GentleStudio%20logo.png?raw=true" alt="GentleStudio Logo" class="brand-logo">
+                <div class="shimmer"></div>
+            </div>
         </div>
     </header>
 
@@ -92,5 +96,25 @@
             </div>
         </div>
     </footer>
+
+    <!-- 로고 팝업 모달 영역 -->
+    <div id="logoModal" class="modal" onclick="closeLogoModal()">
+        <span class="close-btn">&times;</span>
+        <img class="modal-content" id="popupImage" alt="GentleStudio Full Logo">
+    </div>
+
+    <!-- 팝업 스크립트 -->
+    <script>
+        function openLogoModal() {
+            const modal = document.getElementById('logoModal');
+            const popupImg = document.getElementById('popupImage');
+            modal.style.display = 'flex';
+            popupImg.src = 'https://rawcdn.githack.com/GentleStudio/web/4518a40c03b7f9046dd2cc38b1ad6ff110061827/assets/GentleStudio%20logo.png?raw=true';
+        }
+
+        function closeLogoModal() {
+            document.getElementById('logoModal').style.display = 'none';
+        }
+    </script>
 </body>
 </html>

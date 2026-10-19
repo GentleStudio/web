@@ -47,6 +47,52 @@ header {
     letter-spacing: -0.5px;
 }
 
+/* =========================================
+   [신규 추가] 상단 업체 로고 이펙트 (아우라 글로우 & 쉬머)
+   ========================================= */
+.logo-wrapper {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 8px;
+    padding: 5px;
+    transition: transform 0.3s ease;
+}
+
+.brand-logo {
+    height: 40px;
+    display: block;
+    /* 기본 상태: 은은한 무채색 글로우 */
+    filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.15));
+    transition: filter 0.4s ease, transform 0.4s ease;
+}
+
+/* 마우스 오버 시: 어둡고 깊은 무채색 아우라 글로우 확장 */
+.logo-wrapper:hover .brand-logo {
+    filter: drop-shadow(0 0 18px rgba(0, 0, 0, 0.75));
+    transform: scale(1.03);
+}
+
+/* 자동 쉬머(Shimmer) 이펙트 애니메이션 */
+.shimmer {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%);
+    transform: skewX(-20deg);
+    animation: shimmer-effect 3.5s infinite;
+    pointer-events: none;
+}
+
+@keyframes shimmer-effect {
+    0% { left: -100%; }
+    20% { left: 200%; }
+    100% { left: 200%; }
+}
+
 /* 히어로(메인) 섹션 */
 .hero {
     background-color: #0f172a; /* 신뢰감을 주는 딥 네이비 */
@@ -207,20 +253,7 @@ footer {
     text-align: center;
 }
 
-/* 모바일 반응형 처리 */
-@media (max-width: 768px) {
-    .hero h1 {
-        font-size: 30px;
-    }
-    .hero p {
-        font-size: 16px;
-    }
-    .section-padding {
-        padding: 50px 0;
-    }
-}
-
-/* 푸터 카카오톡 링크 스타일 (추가) */
+/* 푸터 카카오톡 링크 스타일 */
 .kakao-link {
     color: #60a5fa; /* 비즈니스 신뢰감을 주는 블루 계열 포인트 */
     text-decoration: none;
@@ -231,4 +264,81 @@ footer {
 .kakao-link:hover {
     color: #93c5fd;
     text-decoration: underline;
+}
+
+/* =========================================
+   [신규 추가] 로고 팝업 모달창 스타일
+   ========================================= */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(5px);
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    animation: fadeIn 0.3s forwards;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+.modal-content {
+    max-width: 90%;
+    max-height: 80vh;
+    border-radius: 10px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    transform: scale(0.9);
+    animation: zoomIn 0.3s forwards;
+}
+
+@keyframes zoomIn {
+    to { transform: scale(1); }
+}
+
+.close-btn {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    color: #ffffff;
+    font-size: 45px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close-btn:hover {
+    color: #cccccc;
+}
+
+/* =========================================
+   모바일 반응형 처리 (기존 유지 + 신규 요소 최적화)
+   ========================================= */
+@media (max-width: 768px) {
+    /* 기존 코드 완전 보존 */
+    .hero h1 {
+        font-size: 30px;
+    }
+    .hero p {
+        font-size: 16px;
+    }
+    .section-padding {
+        padding: 50px 0;
+    }
+    
+    /* 신규 로고 및 팝업 모바일 최적화 */
+    .brand-logo {
+        height: 32px;
+    }
+    .close-btn {
+        top: 15px;
+        right: 20px;
+        font-size: 35px;
+    }
 }
