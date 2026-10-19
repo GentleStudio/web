@@ -28,7 +28,7 @@ body {
 header {
     background-color: #ffffff;
     border-bottom: 1px solid #eaeaea;
-    padding: 20px 0;
+    padding: 16px 0;
     position: sticky;
     top: 0;
     z-index: 100;
@@ -47,37 +47,55 @@ header {
     letter-spacing: -0.5px;
 }
 
-/* 히어로(메인) 섹션 */
+/* 상단 우측 '바로문의' CTA 버튼 */
+.nav-contact-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 9px 20px;
+    background-color: #2563eb; /* 신뢰감 있는 전문 포인트 블루 */
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.nav-contact-btn:hover {
+    background-color: #1d4ed8;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+}
+
+/* 히어로(메인) 섹션 (높이 정밀 축소: 과도한 여백 압축) */
 .hero {
     background-color: #0f172a; /* 신뢰감을 주는 딥 네이비 */
     color: #ffffff;
-    padding: 110px 0 120px;
+    padding: 70px 0 80px; /* 기존 110px 0 120px에서 안정적으로 슬림화 */
     text-align: center;
 }
 
-/* =========================================
-   히어로 영역 로고 이펙트 (아우라 글로우 & 쉬머)
-   ========================================= */
+/* 히어로 영역 로고 이펙트 (아우라 글로우 & 쉬머) */
 .hero-logo-wrapper {
     position: relative;
     display: inline-block;
     cursor: pointer;
     overflow: hidden;
     border-radius: 10px;
-    padding: 8px 16px;
-    margin-bottom: 24px; /* 메인 타이틀과의 자연스러운 시각적 여백 */
+    padding: 6px 14px;
+    margin-bottom: 18px; /* 타이틀과의 간격을 자연스럽게 압축 */
     transition: transform 0.3s ease;
 }
 
 .hero-brand-logo {
-    height: 48px;
+    height: 44px;
     display: block;
-    /* 어두운 배경 위 화이트 로고 전용 은은한 아우라 글로우 */
     filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.25));
     transition: filter 0.4s ease, transform 0.4s ease;
 }
 
-/* 마우스 오버 시: 입체적인 화이트 & 블루 글로우로 확장 */
+/* 마우스 오버 시: 입체적인 화이트 & 블루 글로우 확장 */
 .hero-logo-wrapper:hover .hero-brand-logo {
     filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.85)) drop-shadow(0 0 35px rgba(96, 165, 250, 0.4));
     transform: scale(1.05);
@@ -103,15 +121,15 @@ header {
 }
 
 .hero h1 {
-    font-size: 42px;
+    font-size: 38px; /* 여백 축소에 맞춘 균형 잡힌 폰트 스케일 */
     font-weight: 700;
     line-height: 1.4;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
     letter-spacing: -1px;
 }
 
 .hero p {
-    font-size: 20px;
+    font-size: 19px;
     font-weight: 400;
     color: #cbd5e1;
 }
@@ -267,9 +285,7 @@ footer {
     text-decoration: underline;
 }
 
-/* =========================================
-   로고 팝업 모달창 스타일
-   ========================================= */
+/* 로고 팝업 모달창 스타일 */
 .modal {
     display: none;
     position: fixed;
@@ -278,7 +294,7 @@ footer {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(15, 23, 42, 0.9); /* 히어로와 통일감 있는 딥 네이비 반투명 배경 */
+    background-color: rgba(15, 23, 42, 0.9);
     backdrop-filter: blur(8px);
     align-items: center;
     justify-content: center;
@@ -318,27 +334,29 @@ footer {
     color: #60a5fa;
 }
 
-/* =========================================
-   모바일 반응형 최적화
-   ========================================= */
+/* 모바일 반응형 최적화 */
 @media (max-width: 768px) {
     .hero {
-        padding: 80px 0 90px;
+        padding: 55px 0 65px; /* 모바일 환경 높이 최적화 */
     }
     .hero-brand-logo {
-        height: 38px; /* 모바일 화면 로고 최적 축소 */
+        height: 34px;
     }
     .hero-logo-wrapper {
-        margin-bottom: 18px;
+        margin-bottom: 14px;
     }
     .hero h1 {
-        font-size: 30px;
+        font-size: 26px;
     }
     .hero p {
-        font-size: 16px;
+        font-size: 15px;
     }
     .section-padding {
         padding: 50px 0;
+    }
+    .nav-contact-btn {
+        padding: 7px 14px;
+        font-size: 13px;
     }
     .close-btn {
         top: 15px;
