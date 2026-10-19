@@ -219,3 +219,16 @@ footer {
         padding: 50px 0;
     }
 }
+
+/* 푸터 카카오톡 링크 스타일 (추가) */
+.kakao-link {
+    color: #60a5fa; /* 비즈니스 신뢰감을 주는 블루 계열 포인트 */
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+.kakao-link:hover {
+    color: #93c5fd;
+    text-decoration: underline;
+}
