@@ -24,7 +24,66 @@ body {
     padding: 80px 0;
 }
 
-/* 헤더 스타일 */
+/* =========================================
+   [신규 추가] 페이지 최상단 로고 전용 영역 스타일
+   ========================================= */
+.top-logo-area {
+    background-color: #ffffff;
+    border-bottom: 1px solid #f1f5f9;
+    padding: 18px 0;
+}
+
+.top-logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 상단 로고 이펙트 (아우라 글로우 & 쉬머) */
+.logo-wrapper {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 8px;
+    padding: 5px;
+    transition: transform 0.3s ease;
+}
+
+.brand-logo {
+    height: 44px;
+    display: block;
+    /* 기본 상태: 은은한 무채색 글로우 */
+    filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.15));
+    transition: filter 0.4s ease, transform 0.4s ease;
+}
+
+/* 마우스 오버 시: 어둡고 깊은 무채색 아우라 글로우 확장 */
+.logo-wrapper:hover .brand-logo {
+    filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.8));
+    transform: scale(1.04);
+}
+
+/* 자동 쉬머(Shimmer) 이펙트 애니메이션 */
+.shimmer {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%);
+    transform: skewX(-20deg);
+    animation: shimmer-effect 3.5s infinite;
+    pointer-events: none;
+}
+
+@keyframes shimmer-effect {
+    0% { left: -100%; }
+    20% { left: 200%; }
+    100% { left: 200%; }
+}
+
+/* 헤더 스타일 (상단 메뉴바) */
 header {
     background-color: #ffffff;
     border-bottom: 1px solid #eaeaea;
@@ -45,52 +104,6 @@ header {
     font-weight: 800;
     color: #1a202c;
     letter-spacing: -0.5px;
-}
-
-/* =========================================
-   [신규 추가] 상단 업체 로고 이펙트 (아우라 글로우 & 쉬머)
-   ========================================= */
-.logo-wrapper {
-    position: relative;
-    display: inline-block;
-    cursor: pointer;
-    overflow: hidden;
-    border-radius: 8px;
-    padding: 5px;
-    transition: transform 0.3s ease;
-}
-
-.brand-logo {
-    height: 40px;
-    display: block;
-    /* 기본 상태: 은은한 무채색 글로우 */
-    filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.15));
-    transition: filter 0.4s ease, transform 0.4s ease;
-}
-
-/* 마우스 오버 시: 어둡고 깊은 무채색 아우라 글로우 확장 */
-.logo-wrapper:hover .brand-logo {
-    filter: drop-shadow(0 0 18px rgba(0, 0, 0, 0.75));
-    transform: scale(1.03);
-}
-
-/* 자동 쉬머(Shimmer) 이펙트 애니메이션 */
-.shimmer {
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 50%;
-    height: 100%;
-    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%);
-    transform: skewX(-20deg);
-    animation: shimmer-effect 3.5s infinite;
-    pointer-events: none;
-}
-
-@keyframes shimmer-effect {
-    0% { left: -100%; }
-    20% { left: 200%; }
-    100% { left: 200%; }
 }
 
 /* 히어로(메인) 섹션 */
@@ -267,7 +280,7 @@ footer {
 }
 
 /* =========================================
-   [신규 추가] 로고 팝업 모달창 스타일
+   로고 팝업 모달창 스타일
    ========================================= */
 .modal {
     display: none;
@@ -318,10 +331,9 @@ footer {
 }
 
 /* =========================================
-   모바일 반응형 처리 (기존 유지 + 신규 요소 최적화)
+   모바일 반응형 처리
    ========================================= */
 @media (max-width: 768px) {
-    /* 기존 코드 완전 보존 */
     .hero h1 {
         font-size: 30px;
     }
@@ -331,10 +343,8 @@ footer {
     .section-padding {
         padding: 50px 0;
     }
-    
-    /* 신규 로고 및 팝업 모바일 최적화 */
     .brand-logo {
-        height: 32px;
+        height: 34px;
     }
     .close-btn {
         top: 15px;
