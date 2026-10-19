@@ -53,7 +53,7 @@ header {
     align-items: center;
     justify-content: center;
     padding: 9px 20px;
-    background-color: #2563eb; /* 신뢰감 있는 전문 포인트 블루 */
+    background-color: #2563eb; /* 전문적인 포인트 블루 */
     color: #ffffff;
     font-size: 14px;
     font-weight: 600;
@@ -68,37 +68,42 @@ header {
     box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
 }
 
-/* 히어로(메인) 섹션 (높이 정밀 축소: 과도한 여백 압축) */
+/* 히어로(메인) 섹션 */
 .hero {
     background-color: #0f172a; /* 신뢰감을 주는 딥 네이비 */
     color: #ffffff;
-    padding: 70px 0 80px; /* 기존 110px 0 120px에서 안정적으로 슬림화 */
+    padding: 80px 0 90px;
     text-align: center;
 }
 
-/* 히어로 영역 로고 이펙트 (아우라 글로우 & 쉬머) */
+/* =========================================
+   히어로 영역 로고 이펙트 (폭 기준 재설계)
+   ========================================= */
 .hero-logo-wrapper {
     position: relative;
     display: inline-block;
     cursor: pointer;
     overflow: hidden;
     border-radius: 10px;
-    padding: 6px 14px;
-    margin-bottom: 18px; /* 타이틀과의 간격을 자연스럽게 압축 */
+    padding: 8px 16px;
+    margin-bottom: 24px;
     transition: transform 0.3s ease;
 }
 
 .hero-brand-logo {
-    height: 44px;
+    width: 100%;
+    /* '비즈니스의 전환을 이끄는' 텍스트 폭보다 살짝 벗어나는 최적 가로폭 규격 */
+    max-width: 480px; 
+    height: auto;
     display: block;
-    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.25));
+    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.25));
     transition: filter 0.4s ease, transform 0.4s ease;
 }
 
 /* 마우스 오버 시: 입체적인 화이트 & 블루 글로우 확장 */
 .hero-logo-wrapper:hover .hero-brand-logo {
-    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.85)) drop-shadow(0 0 35px rgba(96, 165, 250, 0.4));
-    transform: scale(1.05);
+    filter: drop-shadow(0 0 22px rgba(255, 255, 255, 0.9)) drop-shadow(0 0 40px rgba(96, 165, 250, 0.45));
+    transform: scale(1.02);
 }
 
 /* 자동 쉬머(Shimmer) 애니메이션 */
@@ -121,10 +126,10 @@ header {
 }
 
 .hero h1 {
-    font-size: 38px; /* 여백 축소에 맞춘 균형 잡힌 폰트 스케일 */
+    font-size: 38px;
     font-weight: 700;
     line-height: 1.4;
-    margin-bottom: 16px;
+    margin-bottom: 18px;
     letter-spacing: -1px;
 }
 
@@ -337,13 +342,13 @@ footer {
 /* 모바일 반응형 최적화 */
 @media (max-width: 768px) {
     .hero {
-        padding: 55px 0 65px; /* 모바일 환경 높이 최적화 */
+        padding: 60px 0 70px;
     }
     .hero-brand-logo {
-        height: 34px;
+        max-width: 280px; /* 모바일 타이틀 폭에 맞춰 비례 최적화 */
     }
     .hero-logo-wrapper {
-        margin-bottom: 14px;
+        margin-bottom: 16px;
     }
     .hero h1 {
         font-size: 26px;
