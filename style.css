@@ -24,65 +24,6 @@ body {
     padding: 80px 0;
 }
 
-/* =========================================
-   [신규 추가] 페이지 최상단 로고 전용 영역 스타일
-   ========================================= */
-.top-logo-area {
-    background-color: #ffffff;
-    border-bottom: 1px solid #f1f5f9;
-    padding: 18px 0;
-}
-
-.top-logo-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* 상단 로고 이펙트 (아우라 글로우 & 쉬머) */
-.logo-wrapper {
-    position: relative;
-    display: inline-block;
-    cursor: pointer;
-    overflow: hidden;
-    border-radius: 8px;
-    padding: 5px;
-    transition: transform 0.3s ease;
-}
-
-.brand-logo {
-    height: 44px;
-    display: block;
-    /* 기본 상태: 은은한 무채색 글로우 */
-    filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.15));
-    transition: filter 0.4s ease, transform 0.4s ease;
-}
-
-/* 마우스 오버 시: 어둡고 깊은 무채색 아우라 글로우 확장 */
-.logo-wrapper:hover .brand-logo {
-    filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.8));
-    transform: scale(1.04);
-}
-
-/* 자동 쉬머(Shimmer) 이펙트 애니메이션 */
-.shimmer {
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 50%;
-    height: 100%;
-    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%);
-    transform: skewX(-20deg);
-    animation: shimmer-effect 3.5s infinite;
-    pointer-events: none;
-}
-
-@keyframes shimmer-effect {
-    0% { left: -100%; }
-    20% { left: 200%; }
-    100% { left: 200%; }
-}
-
 /* 헤더 스타일 (상단 메뉴바) */
 header {
     background-color: #ffffff;
@@ -110,8 +51,55 @@ header {
 .hero {
     background-color: #0f172a; /* 신뢰감을 주는 딥 네이비 */
     color: #ffffff;
-    padding: 120px 0;
+    padding: 110px 0 120px;
     text-align: center;
+}
+
+/* =========================================
+   히어로 영역 로고 이펙트 (아우라 글로우 & 쉬머)
+   ========================================= */
+.hero-logo-wrapper {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 10px;
+    padding: 8px 16px;
+    margin-bottom: 24px; /* 메인 타이틀과의 자연스러운 시각적 여백 */
+    transition: transform 0.3s ease;
+}
+
+.hero-brand-logo {
+    height: 48px;
+    display: block;
+    /* 어두운 배경 위 화이트 로고 전용 은은한 아우라 글로우 */
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.25));
+    transition: filter 0.4s ease, transform 0.4s ease;
+}
+
+/* 마우스 오버 시: 입체적인 화이트 & 블루 글로우로 확장 */
+.hero-logo-wrapper:hover .hero-brand-logo {
+    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.85)) drop-shadow(0 0 35px rgba(96, 165, 250, 0.4));
+    transform: scale(1.05);
+}
+
+/* 자동 쉬머(Shimmer) 애니메이션 */
+.shimmer {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0) 100%);
+    transform: skewX(-20deg);
+    animation: shimmer-effect 3.5s infinite;
+    pointer-events: none;
+}
+
+@keyframes shimmer-effect {
+    0% { left: -100%; }
+    20% { left: 200%; }
+    100% { left: 200%; }
 }
 
 .hero h1 {
@@ -290,8 +278,8 @@ footer {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.85);
-    backdrop-filter: blur(5px);
+    background-color: rgba(15, 23, 42, 0.9); /* 히어로와 통일감 있는 딥 네이비 반투명 배경 */
+    backdrop-filter: blur(8px);
     align-items: center;
     justify-content: center;
     opacity: 0;
@@ -303,10 +291,10 @@ footer {
 }
 
 .modal-content {
-    max-width: 90%;
-    max-height: 80vh;
-    border-radius: 10px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    max-width: 85%;
+    max-height: 75vh;
+    border-radius: 12px;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.6);
     transform: scale(0.9);
     animation: zoomIn 0.3s forwards;
 }
@@ -327,13 +315,22 @@ footer {
 }
 
 .close-btn:hover {
-    color: #cccccc;
+    color: #60a5fa;
 }
 
 /* =========================================
-   모바일 반응형 처리
+   모바일 반응형 최적화
    ========================================= */
 @media (max-width: 768px) {
+    .hero {
+        padding: 80px 0 90px;
+    }
+    .hero-brand-logo {
+        height: 38px; /* 모바일 화면 로고 최적 축소 */
+    }
+    .hero-logo-wrapper {
+        margin-bottom: 18px;
+    }
     .hero h1 {
         font-size: 30px;
     }
@@ -342,9 +339,6 @@ footer {
     }
     .section-padding {
         padding: 50px 0;
-    }
-    .brand-logo {
-        height: 34px;
     }
     .close-btn {
         top: 15px;
